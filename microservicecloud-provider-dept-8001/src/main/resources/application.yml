@@ -7,6 +7,7 @@ mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml
   type-aliases-package: com.jsako.springcloud.entities
 
+#配置spring相关
 spring:
   application:
     name: microservicecloud-dept
@@ -16,3 +17,19 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloud
     username: root
     password: SSYVcal262
+
+#配置注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka #Eureka Server查询注册地址
+  instance:
+    instance-id: microservicecloud-dept8001
+    prefer-ip-address: true
+
+#配置微服务描述信息
+info:
+  app.name: microservicecloud
+  company.name: jsako
+  build.artifactId: $jsako.id$
+  build.version: $jsako.version$

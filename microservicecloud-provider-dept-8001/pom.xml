@@ -11,6 +11,11 @@
 
     <artifactId>microservicecloud-provider-dept-8001</artifactId>
 
+    <properties>
+        <jsako.id>microservicecloud-provider-dept-8001</jsako.id>
+        <jsako.version>1.0-SNAPSHOT</jsako.version>
+    </properties>
+
     <dependencies>
         <!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
         <dependency>
@@ -95,8 +100,9 @@
     <build>
         <!--编译资源路径配置-->
         <resources>
-            <resource>
+           <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
             </resource>
             <resource>
                 <directory>src/main/java</directory>

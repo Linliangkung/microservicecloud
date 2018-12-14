@@ -4,6 +4,7 @@ import com.jsako.springcloud.dept.mappers.DeptMapper;
 import com.jsako.springcloud.dept.service.DeptService;
 import com.jsako.springcloud.entities.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
     @PostMapping("/add")
     public boolean addDept(@RequestBody Dept dept){
         return deptService.addDept(dept);
@@ -35,5 +39,8 @@ public class DeptController {
         return deptService.findAll();
     }
 
-
+    @GetMapping("/discovery")
+    public Object discovery(){
+        return discoveryClient;
+    }
 }
