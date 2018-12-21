@@ -1,6 +1,6 @@
 #配置端口号
 server:
-  port: 8001
+  port: 8003
 
 #配置mybatis
 mybatis:
@@ -24,10 +24,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka,http://localhost:7003/eureka #Eureka Server查询注册地址
   instance:
-    instance-id: microservicecloud-dept8001
+    instance-id: microservicecloud-dept8003
     prefer-ip-address: true
-#    lease-renewal-interval-in-seconds: 10
-#    lease-expiration-duration-in-seconds: 5
 
 #配置微服务描述信息
 info:
@@ -35,11 +33,3 @@ info:
   company.name: jsako
   build.artifactId: $jsako.id$
   build.version: $jsako.version$
-
-
-management:
-  security:
-    enabled: false
-endpoints:
-  shutdown:
-    enabled: true

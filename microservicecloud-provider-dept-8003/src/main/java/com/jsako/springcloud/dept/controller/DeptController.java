@@ -35,7 +35,7 @@ public class DeptController {
 
     @GetMapping("/list")
     public List<Dept> listDept(){
-        LOGGER.info("8001 list");
+        LOGGER.info("8002 list");
         return deptService.findAll();
     }
 
