@@ -2,6 +2,7 @@ package com.jsako.springcloud.service;
 
 import com.jsako.springcloud.entities.Dept;
 import feign.hystrix.FallbackFactory;
+import rx.Observable;
 
 import java.util.List;
 
@@ -25,9 +26,9 @@ public class DeptFallBackFactory implements FallbackFactory<DeptFallBackFactory.
         }
 
         @Override
-        public Dept get(long id) {
+        public Observable<Dept> get(long id) {
             System.out.println(cause.getMessage());
-            return new Dept(0L,"出错啦" ,"error" );
+            return Observable.just(new Dept(1L,"出错啦",cause.getMessage() ));
         }
 
         @Override

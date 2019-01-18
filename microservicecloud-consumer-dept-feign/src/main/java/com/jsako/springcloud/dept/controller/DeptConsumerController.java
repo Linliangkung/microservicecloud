@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @Date 2018/12/13
@@ -32,8 +33,8 @@ public class DeptConsumerController {
     }
 
     @GetMapping("/get/{id}")
-    public Dept get(@PathVariable Integer id){
-        return deptClientService.get(id);
+    public Dept get(@PathVariable Integer id) throws ExecutionException, InterruptedException {
+        return deptClientService.get(id).toBlocking().toFuture().get();
     }
 
     @GetMapping("/list")

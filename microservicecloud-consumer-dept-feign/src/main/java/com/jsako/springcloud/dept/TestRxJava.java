@@ -138,7 +138,7 @@ public class TestRxJava {
             System.out.println("error");
         }*/
 
-        Observable<String> observable = Observable.create((Observable.OnSubscribe<String>)  subscriber -> subscriber.onError(new RuntimeException("123")));
+        Observable<String> observable = Observable.create(subscriber -> subscriber.onError(new RuntimeException("123")));
 
         observable.onErrorResumeNext(Observable.create(subscriber -> subscriber.onError(new RuntimeException("321")))).subscribe(System.out::println,System.out::println);
     }
