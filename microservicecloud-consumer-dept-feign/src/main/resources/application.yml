@@ -10,4 +10,16 @@ eureka:
 
 ribbon:
   ServerListRefreshInterval: 300000
+feign:
+  hystrix:
+    enabled: true
 
+hystrix:
+  command:
+    default:  #default全局有效
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000

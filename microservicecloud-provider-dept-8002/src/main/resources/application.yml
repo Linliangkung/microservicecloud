@@ -33,3 +33,11 @@ info:
   company.name: jsako
   build.artifactId: $jsako.id$
   build.version: $jsako.version$
+
+
+management:
+  security:
+    enabled: false
+endpoints:
+  shutdown:
+    enabled: true
