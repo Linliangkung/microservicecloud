@@ -4,6 +4,7 @@ import com.jsako.springcloud.entities.Dept;
 import feign.hystrix.FallbackFactory;
 import rx.Observable;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class DeptFallBackFactory implements FallbackFactory<DeptFallBackFactory.
 
         @Override
         public List<Dept> list() {
-            return null;
+            return Arrays.asList(new Dept(-1L,"出错啦",cause.getMessage()));
         }
 
         @Override
