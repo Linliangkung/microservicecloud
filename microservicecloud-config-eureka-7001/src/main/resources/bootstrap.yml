@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: microservicecloud-config-eureka-7001
+      label: master
+      uri: http://localhost:3344

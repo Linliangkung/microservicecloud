@@ -21,6 +21,11 @@
         <module>microservicecloud-provider-dept-8003</module>
         <module>microservicecloud-consumer-dept-feign</module>
         <module>microservicecloud-hystrix-dashboard</module>
+        <module>microservicecloud-zuul-gateway-9527</module>
+        <module>microservicecloud-config-3344</module>
+        <module>microservicecloud-config-client-3355</module>
+        <module>microservicecloud-config-eureka-7001</module>
+        <module>microservicecloud-config-provider-dept-8001</module>
     </modules>
     <packaging>pom</packaging>
 

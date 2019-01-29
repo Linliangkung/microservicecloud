@@ -1,0 +1,31 @@
+server: 
+  port: 9527
+ 
+spring: 
+  application:
+    name: microservicecloud-zuul-gateway
+ 
+eureka: 
+  client: 
+    service-url: 
+      defaultZone: http://localhost:7001/eureka,http://localhost::7002/eureka,http://localhost::7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: false
+ 
+ 
+zuul: 
+  #ignored-services: microservicecloud-dept
+  prefix: /jsako
+  #ignored-services: "*"
+  routes:
+    #routes最前面一个参数为ZuulProperties routes的key(任意配置都行)
+    ko.serviceId: microservicecloud-dept
+    ko.path: /mydept/**
+ 
+info:
+  app.name: microservicecloud
+  company.name: jsako
+  build.artifactId: $jsako.id$
+  build.version: $jsako.version$
+
