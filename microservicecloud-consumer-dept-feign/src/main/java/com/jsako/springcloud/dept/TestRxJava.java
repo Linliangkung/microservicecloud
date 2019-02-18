@@ -138,9 +138,13 @@ public class TestRxJava {
             System.out.println("error");
         }*/
 
-        Observable<String> observable = Observable.create(subscriber -> subscriber.onError(new RuntimeException("123")));
+      /*  Observable<String> observable = Observable.create(subscriber -> subscriber.onError(new RuntimeException("123")));
 
-        observable.onErrorResumeNext(Observable.create(subscriber -> subscriber.onError(new RuntimeException("321")))).subscribe(System.out::println,System.out::println);
+        observable.onErrorResumeNext(Observable.create(subscriber -> subscriber.onError(new RuntimeException("321")))).subscribe(System.out::println,System.out::println);*/
+
+        Observable.defer(()->Observable.defer(()->Observable.<String>create(s->s.onNext("1230"))).doOnNext(s->System.out.println("inner do onnext")))
+                .doOnNext(System.out::println)
+                .subscribe(s->System.out.println("outer do onnext"));
     }
 
 }
